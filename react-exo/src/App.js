@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, createContext, useReducer } from 'react';
 
 import NewExpense from './components/NewExpense';
 import Expenses from './components/Expenses';
+import Count from './components/Count'
 
 const DUMMY_EXPENSES = [
   {
@@ -25,7 +26,11 @@ const DUMMY_EXPENSES = [
   },
 ];
 
+
+
 const App = () => {
+
+
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
 
   const addExpenseHandler = (expense) => {
@@ -40,6 +45,8 @@ const App = () => {
     <div>
       <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
+      <h1 className = "hello" >25+25</h1>
+      <Count/>
     </div>
   );
 };
