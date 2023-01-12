@@ -1,12 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect} from 'react';
+import { Routes, Route, Link } from "react-router-dom";
 import logo from './logo.svg';
 import './App.css';
 import Cards from './component/Cards/Cards'
 import NewCreatures from './component/Creatures/NewCreatures';
 import { findAll } from './services/card';
+import CreatureRessources from './component/Creatures/CreatureRessources';
+import AddCardForm from './component/AddCardForm/AddCardForm';
+import Creatures from './component/Creatures/Creatures';
+import Home from './component/Home/Home';
 
 const App = () => {
-  const [IsCreating, setIsCreating] = useState(false);
   const [creature, setCreature] = useState(findAll);
 
 
@@ -16,33 +20,21 @@ const App = () => {
     });
   };
 
-  const startCreatingCards = () => {
-    setIsCreating(true);
-  };
 
-  const stopCreatingCards = () => {
-    setIsCreating(false);
-  };
 
   return (
-    <div>
-      <header>
-        <h2>My cards:</h2>
-      </header>
+  
+        <div>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path ="cards" element={<Cards/>}/>
+            <Route path="creaturesRessources" element={<CreatureRessources/>}></Route>
+            <Route path="creatures" element={<Creatures/>}></Route>
+            <Route path="addCardForm" element={<AddCardForm/>}></Route>
+            <Route path="newCreatures" element={<NewCreatures/>}></Route>
+          </Routes>
 
-      {/* Affichage conditionnel */}
-      {!IsCreating && (
-        <button onClick={startCreatingCards}>Add New Creature</button>
-      )}
-      {IsCreating && (
-        <NewCreatures
-        saveNewCreatureData={addCreatureHandler}
-        onCancel={stopCreatingCards}
-        />
-      )}
-      <Cards/>
-
-    </div>
+        </div>
   );
 }
 

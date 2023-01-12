@@ -1,6 +1,7 @@
 import React from 'react';
 import CreatureRessources from '../Creatures/CreatureRessources';
 import CreaturesList from '../Creatures/CreaturesList';
+import { Link } from "react-router-dom";
 
 import './Cards.css';
 
@@ -10,7 +11,7 @@ const Card = () => {
 
   return(
     <div className={classes}>
-        <CreatureRessources/>
+       <CreatureRessources/>
     </div>
     
   )

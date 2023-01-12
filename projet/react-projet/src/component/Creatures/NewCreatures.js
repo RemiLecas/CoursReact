@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import AddCardForm from '../AddCardForm/AddCardForm';
 import './NewCreatures.css';
 
@@ -25,15 +25,10 @@ const NewCreatures = (card) => {
 
   return (
     <div>
-      {!isEditing && (
-        <button onClick={startEditingHandler}>Add New Expense</button>
-      )}
-      {isEditing && (
         <AddCardForm
-          onSaveCreatureData={saveCreatureDataHandler}
-          onCancel={stopEditingHandler}
+            onSaveCreatureData={saveCreatureDataHandler}
+            onCancel={stopEditingHandler}
         />
-      )}
     </div>
   );
 };

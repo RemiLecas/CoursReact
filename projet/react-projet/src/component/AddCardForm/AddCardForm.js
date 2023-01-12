@@ -1,6 +1,7 @@
 // Permet d'ajouter une carte
 
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import './AddCardForm.css';
 
@@ -114,8 +115,10 @@ const AddCardForm = (card) => {
         </div>
       </div>
       <div>
-        <button type='submit'>Add Creatures</button>
-        <button type="button" onClick={card.onCancel}>Cancel</button>
+        <Link to="/">
+            <button type='submit'>Add Creatures</button>
+            <button type="button" onClick={card.onCancel}>Cancel</button>
+        </Link>
       </div>
     </form>
   );
