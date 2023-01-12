@@ -1,25 +1,28 @@
 import React, {useState, useEffect} from 'react'
 import logo from './logo.svg';
 import './App.css';
+import Cards from './component/Cards/Cards'
+import NewCreatures from './component/Creatures/NewCreatures';
 import { findAll } from './services/card';
 
 const App = () => {
-  const [loading, setLoading] = useState(false);
-  const [card, myCreature] = useState([]);
+  const [IsCreating, setIsCreating] = useState(false);
+  const [creature, setCreature] = useState(findAll);
 
-  const fetchData = async () => {
-    setLoading(true)
 
-    const res = await findAll();
+  const addCreatureHandler = (creature) => {
+    setCreature((lastCreature) => {
+      return [creature, ...lastCreature];
+    });
+  };
 
-    myCreature([...res])
-    setLoading(false)
-    console.log('response', res)
-  }
+  const startCreatingCards = () => {
+    setIsCreating(true);
+  };
 
-  useEffect(()=> {
-    fetchData()
-  },[])
+  const stopCreatingCards = () => {
+    setIsCreating(false);
+  };
 
   return (
     <div>
@@ -27,9 +30,17 @@ const App = () => {
         <h2>My cards:</h2>
       </header>
 
-      <button onClick={() => {console.log('clicked')}}>Request</button>
       {/* Affichage conditionnel */}
-      
+      {!IsCreating && (
+        <button onClick={startCreatingCards}>Add New Creature</button>
+      )}
+      {IsCreating && (
+        <NewCreatures
+        saveNewCreatureData={addCreatureHandler}
+        onCancel={stopCreatingCards}
+        />
+      )}
+      <Cards/>
 
     </div>
   );
