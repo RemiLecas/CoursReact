@@ -1,4 +1,4 @@
-import {getDocs, collection, addDoc, setDoc} from 'firebase/firestore'
+import {getDocs, collection, addDoc, doc, updateDoc} from 'firebase/firestore'
 import {getDb} from './firebase'
 
 const collection_name = 'MagicCollection'
@@ -23,36 +23,34 @@ export const findAll = async () => {
 // POST
 export const addCard = async (creatures) => {
     await addDoc(collection(getDb(), collection_name), {
-        Name: creatures?.Name,
-        Color: creatures?.Color,
-        Cost: creatures?.Cost,
-        Description: creatures?.Description,
-        Attack: creatures?.Attack,
-        Defense: creatures?.Defense
-      });
-
-    
+        Name: creatures?.name,
+        Cost: creatures?.cost,
+        Description: creatures?.description,
+        Color: creatures?.color,
+        Attack: creatures?.attack,
+        Defense: creatures?.defense
+    });   
     
 }
 
+
 // PUT
 
-// export const modifyCard = async () => {
-//     const doc_refs = await (collection(getDb(), collection_name));
+export const modifyCreatureCard = async (creatures) => {
+    const card_ref = doc(collection(getDb(), collection_name),creatures.id);
 
-//     const res = [];
+    console.log(creatures.id);
 
-//     doc_refs.forEach(creature => {
-//         res.push({
-//             id: creature.id,
-//             ...creature.data()
-//         })
-//     })
+    await updateDoc(card_ref, {
+        Name: creatures?.name,
+        Cost: creatures?.cost,
+        Description: creatures?.description,
+        Color: creatures?.color,
+        Attack: creatures?.attack,
+        Defense: creatures?.defense
+    });
 
-//     return res
-// }
+    return creatures
+}
 
-// Rajouter des create, update, delete, get
-
-
-// juste à changer "getDocs"
+// Rajouter des create, update, delete, getID

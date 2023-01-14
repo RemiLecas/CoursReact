@@ -13,12 +13,9 @@ const AddCardForm = (card) => {
   const [enteredCost, setEnteredCost] = useState('');
   const [enteredAttack, setEnteredAttack] = useState('');
   const [enteredDefense, setEnteredDefense] = useState('');
-  const [newCreatures, setNewCreatures] = useState({});
 
 
   const nameChangeHandler = (event) => {
-    console.log('nameChangeHandler',event);
-    console.log(event.target.value);
     setEnteredName(event.target.value);
   };
 
@@ -42,22 +39,21 @@ const AddCardForm = (card) => {
     setEnteredDescription(event.target.value);
   };
 
-  const submitMyNewCardHandler = (event) => {
+  const submitMyNewCardHandler = async (event) => {
     console.log('submitMyNewCardHandler()');
     event.preventDefault();
 
     const creatures = {
-      Name: enteredName,
-      Cost: enteredCost,
-      Color: enteredColor,
-      Attack: enteredAttack,
-      Defense: enteredDefense,
-      Description: enteredDescription,
+      name: enteredName,
+      cost: enteredCost,
+      color: enteredColor,
+      attack: enteredAttack,
+      defense: enteredDefense,
+      description: enteredDescription,
     };
 
-    console.log('setNewCreatures()');
+    await addCreature(creatures);
 
-    setNewCreatures(creatures);
     setEnteredName('');
     setEnteredCost('');
     setEnteredColor('');
@@ -65,12 +61,11 @@ const AddCardForm = (card) => {
     setEnteredDefense('');
     setEnteredDescription('');
 
-    addCreature();
   };
 
-  const addCreature = async () => {
-    console.log('addCreatures', newCreatures);
-    await addCard(newCreatures).then();
+  const addCreature = async (newCreature) => {
+    console.log('addCreatures', newCreature);
+    await addCard(newCreature);
   }
 
   return (

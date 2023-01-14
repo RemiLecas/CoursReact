@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from "react-router-dom";
 
-import Cards from '../Cards/Cards';
 import './Creatures.css';
 import CreatureRessources from './CreatureRessources';
 import { findAll } from '../../services/card';
@@ -32,6 +30,7 @@ const Creatures = (res) => {
           <ul>
               <CreatureRessources 
                 key ={creature.key}
+                id ={creature.id}
                 Name = {creature.Name}
                 Description = {creature.Description}
                 Attack = {creature.Attack}

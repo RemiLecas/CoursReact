@@ -1,25 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Cards from './component/Cards/Cards'
 import NewCreatures from './component/Creatures/NewCreatures';
-import { findAll } from './services/card';
 import CreatureRessources from './component/Creatures/CreatureRessources';
 import AddCardForm from './component/AddCardForm/AddCardForm';
 import Creatures from './component/Creatures/Creatures';
 import Home from './component/Home/Home';
 
 const App = () => {
-  const [creature, setCreature] = useState(findAll);
-
-
-  const addCreatureHandler = (creature) => {
-    setCreature((lastCreature) => {
-      return [creature, ...lastCreature];
-    });
-  };
-
-
 
   return (  
         <div>
@@ -40,8 +29,6 @@ export default App;
 
 // TODO
 
-// Form d'ajout quand on clique
-
 // Form d'update quand on clique
 
 // Form delete
@@ -49,7 +36,3 @@ export default App;
 // Input recherche par couleur
 
 // Quand on clique sur une carte l'afficher en gros
-
-// Utiliser un reducers
-
-// utiliser les routes

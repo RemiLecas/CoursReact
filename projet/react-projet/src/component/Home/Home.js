@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 
 import { Link } from 'react-router-dom';
 import './Home.css';
-import Cards from '../Cards/Cards';
 import Creatures from '../Creatures/Creatures';
 
 const Home = () => {
@@ -20,7 +19,7 @@ const Home = () => {
     
         {/* Affichage conditionnel */}
         {!IsCreating && (
-            <Link to="newCreatures"><button onClick={startCreatingCards}>Add New Creature</button></Link>
+            <Link to="newCreatures"><button onClick={startCreatingCards}>Ajouter une créature</button></Link>
         )}
         <Creatures/>
     </div>
