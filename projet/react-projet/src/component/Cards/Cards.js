@@ -1,23 +1,23 @@
 import React from 'react';
 import CreatureRessources from '../Creatures/CreatureRessources';
-import CreaturesList from '../Creatures/CreaturesList';
 import { Link } from "react-router-dom";
 
 import './Cards.css';
+import Creatures from '../Creatures/Creatures';
 
 // Faire apparaitre toute les cartes avec les infos
-const Card = () => {
+const Cards = (creature) => {
   const classes = 'cards ';
 
   return(
     <div className={classes}>
-       <CreatureRessources/>
+      {creature.children}
     </div>
     
   )
 };
 
-export default Card;
+export default Cards;
 
 
 // Mettre bouton update + deleate

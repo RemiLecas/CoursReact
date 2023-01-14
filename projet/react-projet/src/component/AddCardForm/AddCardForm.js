@@ -1,7 +1,8 @@
 // Permet d'ajouter une carte
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { addCard } from '../../services/card';
 
 import './AddCardForm.css';
 
@@ -12,9 +13,12 @@ const AddCardForm = (card) => {
   const [enteredCost, setEnteredCost] = useState('');
   const [enteredAttack, setEnteredAttack] = useState('');
   const [enteredDefense, setEnteredDefense] = useState('');
+  const [newCreatures, setNewCreatures] = useState({});
 
 
   const nameChangeHandler = (event) => {
+    console.log('nameChangeHandler',event);
+    console.log(event.target.value);
     setEnteredName(event.target.value);
   };
 
@@ -39,6 +43,7 @@ const AddCardForm = (card) => {
   };
 
   const submitMyNewCardHandler = (event) => {
+    console.log('submitMyNewCardHandler()');
     event.preventDefault();
 
     const creatures = {
@@ -50,18 +55,26 @@ const AddCardForm = (card) => {
       Description: enteredDescription,
     };
 
-    card.onSaveExpenseData(creatures);
-    nameChangeHandler('');
+    console.log('setNewCreatures()');
+
+    setNewCreatures(creatures);
     setEnteredName('');
     setEnteredCost('');
     setEnteredColor('');
     setEnteredAttack('');
     setEnteredDefense('');
     setEnteredDescription('');
+
+    addCreature();
   };
 
+  const addCreature = async () => {
+    console.log('addCreatures', newCreatures);
+    await addCard(newCreatures).then();
+  }
+
   return (
-    <form onSubmit={submitMyNewCardHandler}>
+    <form>
       <div>
         <div>
           <label>Name</label>
@@ -116,7 +129,7 @@ const AddCardForm = (card) => {
       </div>
       <div>
         <Link to="/">
-            <button type='submit'>Add Creatures</button>
+            <button type='submit' onClick={submitMyNewCardHandler}>Add Creatures</button>
             <button type="button" onClick={card.onCancel}>Cancel</button>
         </Link>
       </div>

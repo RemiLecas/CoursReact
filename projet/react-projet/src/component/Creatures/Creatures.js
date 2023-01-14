@@ -1,17 +1,47 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
-import Card from '../Cards/Cards';
-import CreaturesList from './CreaturesList';
+import Cards from '../Cards/Cards';
 import './Creatures.css';
 import CreatureRessources from './CreatureRessources';
+import { findAll } from '../../services/card';
 
 const Creatures = (res) => {
+
+  const [loading, setLoading] = useState(false);
+  const [card, myNewCreature] = useState([]);
+
+  const fetchData = async () => {
+    setLoading(true)
+
+    const res = await findAll();
+
+    myNewCreature([...res])
+    setLoading(false)
+    console.log('response', res);
+  }
+
+  useEffect(() => {
+      fetchData()
+    },[])
+
+
   return (
     <div>
-        <Card>
-            <CreatureRessources />
-        </Card>
+        {card.map((creature) => (
+          <ul>
+              <CreatureRessources 
+                key ={creature.key}
+                Name = {creature.Name}
+                Description = {creature.Description}
+                Attack = {creature.Attack}
+                Defense = {creature.Defense}
+                Color = {creature.Color}
+                Cost = {creature.Cost}
+
+                />
+          </ul>
+        ))}
     </div>
   );
 };

@@ -1,6 +1,5 @@
-import React, {useState, useEffect} from 'react';
-import { Routes, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { Routes, Route } from "react-router-dom";
 import './App.css';
 import Cards from './component/Cards/Cards'
 import NewCreatures from './component/Creatures/NewCreatures';
@@ -22,8 +21,7 @@ const App = () => {
 
 
 
-  return (
-  
+  return (  
         <div>
           <Routes>
             <Route path="/" element={<Home/>}/>
@@ -40,10 +38,18 @@ const App = () => {
 
 export default App;
 
-//Form d'ajout quand on clique
+// TODO
 
-//Form d'update quand on clique
+// Form d'ajout quand on clique
 
-//Form delete
+// Form d'update quand on clique
 
-//Input recherche par couleur
+// Form delete
+
+// Input recherche par couleur
+
+// Quand on clique sur une carte l'afficher en gros
+
+// Utiliser un reducers
+
+// utiliser les routes

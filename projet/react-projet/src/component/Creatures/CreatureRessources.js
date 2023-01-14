@@ -5,50 +5,31 @@ import './CreatureRessources.css';
 
 const CreatureRessources = (res) => {
 
-    const [loading, setLoading] = useState(false);
-    const [card, myNewCreature] = useState([]);
-
-    const creature ={};
-  
-    const fetchData = async () => {
-      setLoading(true)
-  
-      const res = await findAll();
-  
-      myNewCreature([...res])
-      setLoading(false)
-      console.log('response', res);
-    }
-
-    useEffect(() => {
-        fetchData()
-      },[])
-
   return (
-    <li>
-        <div> 
-            {card.map((creature) => (
+    <div> 
+        <li>
+            <Cards>
                 <div>
                     <div>
-                        <h2>{creature.Name}</h2>
+                        <h2>{res.Name}</h2>
                     </div>
                     <div>
-                        <h2>{creature.Cost}</h2>
+                        <h2>{res.Cost}</h2>
                     </div>
                     <div>
-                        <h2>{creature.Description}</h2>
+                        <h2>{res.Description}</h2>
                     </div>
                     <div>
-                        <h2>{creature.Attack}</h2>
-                        <h2>{creature.Defense}</h2>
+                        <h2>{res.Attack}</h2>
+                        <h2>{res.Defense}</h2>
                     </div>
                     <div>
-                        <h2>{creature.Color}</h2>
+                        <h2>{res.Color}</h2>
                     </div>
-                </div>                
-            ))}
-        </div>
-    </li>
+                </div>
+            </Cards>                
+        </li>
+    </div>
   );
 };
 
