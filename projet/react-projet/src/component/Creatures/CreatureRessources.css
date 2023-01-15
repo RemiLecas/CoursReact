@@ -1,0 +1,224 @@
+.cost{
+    text-align: end;
+}
+
+.bottom-color{
+    background-color: #eae4e6;
+    border: solid 2px gray;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+    float: right;
+    height: 30px;
+    width: 50px;
+}
+
+.attack_defense_box{
+    text-align: center;
+    margin: 3px;
+}
+
+.div_button_edit_delete{
+    text-align:end;
+}
+
+/* Blue Card */
+
+.card-color-Blue{
+    background-color: #4dc4ec;
+    height: 310px;
+    margin: 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.header-color-Blue{
+    background-color: #eae4e6;
+    border: solid 3px #06669a;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.image-color-Blue{
+    background-color: #eae4e6;
+    border: solid 3px #06669a;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0px 10px 0px 10px;
+}
+
+.type-color-Blue{
+    background-color: #eae4e6;
+    border: solid 3px #06669a;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.description-color-Blue{
+    background-color: #eae4e6;
+    border: solid 3px #06669a;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+    height: 100px;
+}
+
+
+
+/* Green Card */
+
+.card-color-Green{
+    background-color: #678d6b;
+    height: 310px;
+    margin: 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.header-color-Green{
+    background-color: #eae4e6;
+    border: solid 3px #076b3c;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.image-color-Green{
+    background-color: #eae4e6;
+    border: solid 3px #076b3c;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0px 10px 0px 10px;
+}
+
+.type-color-Green{
+    background-color: #eae4e6;
+    border: solid 3px #076b3c;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.description-color-Green{
+    background-color: #eae4e6;
+    border: solid 3px #076b3c;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+    height: 100px;
+}
+
+
+/* Red Card */
+
+.card-color-Red{
+    background-color: #ca533d;
+    height: 310px;
+    margin: 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.header-color-Red{
+    background-color: #eae4e6;
+    border: solid 3px #8d342b;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.image-color-Red{
+    background-color: #eae4e6;
+    border: solid 3px #8d342b;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0px 10px 0px 10px;
+}
+
+.type-color-Red{
+    background-color: #eae4e6;
+    border: solid 3px #8d342b;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.description-color-Red{
+    background-color: #eae4e6;
+    border: solid 3px #8d342b;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+    height: 100px;
+}
+
+
+/* White Card */
+
+.card-color-White{
+    background-color: #dccdb3;
+    height: 310px;
+    margin: 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.header-color-White{
+    background-color: #eae4e6;
+    border: solid 3px #c1b3a7;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.image-color-White{
+    background-color: #eae4e6;
+    border: solid 3px #c1b3a7;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0px 10px 0px 10px;
+}
+
+.type-color-White{
+    background-color: #eae4e6;
+    border: solid 3px #c1b3a7;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.description-color-White{
+    background-color: #eae4e6;
+    border: solid 3px #c1b3a7;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+    height: 100px;
+}
+
+
+/*  Black Card */
+
+.card-color-Black{
+    background-color: #2f2f38;
+    height: 310px;
+    margin: 10px 10px 10px;
+    border-radius: 5px;
+}
+
+.header-color-Black{
+    background-color: #eae4e6;
+    border: solid 3px black;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.image-color-Black{
+    background-color: #eae4e6;
+    border: solid 3px black;
+    border-radius: 5px;
+    height: 100px;
+    margin: 0px 10px 0px 10px;
+}
+
+.type-color-Black{
+    background-color: #eae4e6;
+    border: solid 3px black;
+    border-radius: 5px;
+    margin: 0px 5px 0px 5px;
+}
+
+.description-color-Black{
+    background-color: #eae4e6;
+    border: solid 3px black;
+    border-radius: 5px;
+    margin: 0px 10px 0px 10px;
+    height: 100px;
+}
+
+

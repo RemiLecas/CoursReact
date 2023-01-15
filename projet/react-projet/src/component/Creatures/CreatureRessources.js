@@ -76,30 +76,51 @@ export const CreatureRessources = (res) => {
     }
 
     const deleteCreature = async () => {
-        console.log('deleteCreature', res.id );
+        console.log('deleteCreature', res.id);
         await removeCreature(res);
         alert('Your creature has been deleted !')
     }
-    
+
+    const classes_card_color = 'card-color-' + res.Color;
+    const classes_header_color = 'header-color-' + res.Color;
+    const classes_midle_color = 'description-color-' + res.Color;
+    const classes_bottom_color = 'bottom-color';
+    const classes_image = 'image-color-' + res.Color;
+    const classes_type = 'type-color-' + res.Color;
+
+
     return (
         <div>
             <Cards>
-                <div>
-                    <div>
-                        <h2>Name: {res.Name}</h2>
+                <div className={classes_card_color}>
+                    <div className={classes_header_color}>
+                        <div className='name'>
+                            {res.Name}
+                        </div>
+                        <div className='cost'>
+                            {res.Cost}
+                        </div>
                     </div>
-                    <div>
-                        <h2>Cost: {res.Cost}</h2>
+
+                    <div className={classes_image}>
+
                     </div>
-                    <div>
-                        <h2>Description: {res.Description}</h2>
+
+                    <div className={classes_type}>
+                        Creatures
                     </div>
-                    <div>
-                        <h2>Attack: {res.Attack} / Defense: {res.Defense}</h2>
+
+                    <div className={classes_midle_color}>
+                        {res.Description}
                     </div>
-                    <div>
-                        <h2>{res.Color}</h2>
+                    <div className={classes_bottom_color}>
+                        <div className='attack_defense_box'>
+                            {res.Attack} / {res.Defense}
+
+                        </div>
                     </div>
+                </div>
+                <div className='div_button_edit_delete'>
                     <button onClick={handleOpenModal}> Edit </button>
                     <button onClick={deleteCreature}> Delete </button>
                 </div>
