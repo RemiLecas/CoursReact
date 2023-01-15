@@ -13,9 +13,10 @@ const AddCardForm = (card) => {
   const [enteredCost, setEnteredCost] = useState('');
   const [enteredAttack, setEnteredAttack] = useState('');
   const [enteredDefense, setEnteredDefense] = useState('');
-
+  const [formNotCompleted, myFormIsNotCompleted] = useState(false);
 
   const nameChangeHandler = (event) => {
+    console.log(event.target.value)
     setEnteredName(event.target.value);
   };
 
@@ -43,24 +44,28 @@ const AddCardForm = (card) => {
     console.log('submitMyNewCardHandler()');
     event.preventDefault();
 
-    const creatures = {
-      name: enteredName,
-      cost: enteredCost,
-      color: enteredColor,
-      attack: enteredAttack,
-      defense: enteredDefense,
-      description: enteredDescription,
-    };
+    if (enteredName === '' || enteredCost === ''  || enteredColor === '' || enteredAttack === '' || enteredDefense === '' || enteredDescription === '') {
+      console.log('The form is not filled out correctly')
+      myFormIsNotCompleted(true);
+    } else {
+      const creatures = {
+        name: enteredName,
+        cost: enteredCost,
+        color: enteredColor,
+        attack: enteredAttack,
+        defense: enteredDefense,
+        description: enteredDescription,
+      };
 
-    await addCreature(creatures);
+      await addCreature(creatures);
 
-    setEnteredName('');
-    setEnteredCost('');
-    setEnteredColor('');
-    setEnteredAttack('');
-    setEnteredDefense('');
-    setEnteredDescription('');
-
+      setEnteredName('');
+      setEnteredCost('');
+      setEnteredColor('');
+      setEnteredAttack('');
+      setEnteredDefense('');
+      setEnteredDescription('');
+    }
   };
 
   const addCreature = async (newCreature) => {
@@ -71,12 +76,16 @@ const AddCardForm = (card) => {
   return (
     <form>
       <div>
+        <p>Please complete all fields of the form to add your card</p>
+      </div>
+      <div>
         <div>
           <label>Name</label>
           <input
             type='text'
             value={enteredName}
             onChange={nameChangeHandler}
+            required
           />
         </div>
         <div>
@@ -87,6 +96,7 @@ const AddCardForm = (card) => {
             step='1'
             value={enteredCost}
             onChange={costChangeHandler}
+            required
           />
         </div>
         <div>
@@ -95,15 +105,19 @@ const AddCardForm = (card) => {
             type='text'
             value={enteredDescription}
             onChange={descriptionChangeHandler}
+            required
           />
         </div>
         <div>
           <label>Color</label>
-          <input
-            type='text'
-            value={enteredColor}
-            onChange={colorChangeHandler}
-          />
+          <select value={enteredColor} onChange={colorChangeHandler} required>
+                <option value=''>Select Color</option>
+                <option value='Red'>Red</option>
+                <option value='White'>White</option>
+                <option value='Black'>Black</option>
+                <option value='Blue'>Blue</option>
+                <option value='Green'>Green</option>
+            </select>
         </div>
         <div>
           <label>Attack</label>
@@ -111,6 +125,7 @@ const AddCardForm = (card) => {
             type='number'
             value={enteredAttack}
             onChange={attackChangeHandler}
+            required
           />
         </div>
         <div>
@@ -119,9 +134,15 @@ const AddCardForm = (card) => {
             type='number'
             value={enteredDefense}
             onChange={defenseChangeHandler}
+            required
           />
         </div>
       </div>
+      {formNotCompleted &&
+        <div>
+          <p>The form is not filled out correctly</p>
+        </div>
+      }
       <div>
         <Link to="/">
           <button type='submit' onClick={submitMyNewCardHandler}>Add Creatures</button>

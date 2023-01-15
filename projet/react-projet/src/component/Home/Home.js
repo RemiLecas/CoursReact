@@ -19,7 +19,7 @@ const Home = () => {
 
             {/* Affichage conditionnel */}
             {!IsCreating && (
-                <Link to="newCreatures"><button onClick={startCreatingCards}>Ajouter une créature</button></Link>
+                <Link to="newCreatures"><button onClick={startCreatingCards}>Add new creature</button></Link>
             )}
             <Creatures />
         </div>
