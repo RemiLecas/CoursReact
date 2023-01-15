@@ -26,11 +26,11 @@ const AddCardForm = (card) => {
   const colorChangeHandler = (event) => {
     setEnteredColor(event.target.value);
   };
-  
+
   const attackChangeHandler = (event) => {
     setEnteredAttack(event.target.value);
   };
-  
+
   const defenseChangeHandler = (event) => {
     setEnteredDefense(event.target.value);
   };
@@ -124,8 +124,8 @@ const AddCardForm = (card) => {
       </div>
       <div>
         <Link to="/">
-            <button type='submit' onClick={submitMyNewCardHandler}>Add Creatures</button>
-            <button type="button" onClick={card.onCancel}>Cancel</button>
+          <button type='submit' onClick={submitMyNewCardHandler}>Add Creatures</button>
+          <button type="button" onClick={card.onCancel}>Cancel</button>
         </Link>
       </div>
     </form>

@@ -9,11 +9,11 @@ import Creatures from '../Creatures/Creatures';
 const Cards = (creature) => {
   const classes = 'cards ';
 
-  return(
+  return (
     <div className={classes}>
       {creature.children}
     </div>
-    
+
   )
 };
 

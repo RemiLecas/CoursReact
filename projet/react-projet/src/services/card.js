@@ -1,10 +1,11 @@
-import {getDocs, collection, addDoc, doc, updateDoc} from 'firebase/firestore'
+import {getDocs, collection, addDoc, doc, updateDoc, deleteDoc} from 'firebase/firestore'
 import {getDb} from './firebase'
 
 const collection_name = 'MagicCollection'
 
 
 // Get ALL
+
 export const findAll = async () => {
     const doc_refs = await getDocs(collection(getDb(), collection_name));
 
@@ -21,6 +22,7 @@ export const findAll = async () => {
 }
 
 // POST
+
 export const addCard = async (creatures) => {
     await addDoc(collection(getDb(), collection_name), {
         Name: creatures?.name,
@@ -53,4 +55,11 @@ export const modifyCreatureCard = async (creatures) => {
     return creatures
 }
 
-// Rajouter des create, update, delete, getID
+// Delete
+
+export const removeCreature = async (creatures) => {
+    console.log(creatures.id);
+
+    await deleteDoc(doc(getDb(), collection_name, creatures.id));
+
+}

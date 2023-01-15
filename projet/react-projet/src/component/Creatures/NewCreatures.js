@@ -25,10 +25,10 @@ const NewCreatures = (card) => {
 
   return (
     <div>
-        <AddCardForm
-            onSaveCreatureData={saveCreatureDataHandler}
-            onCancel={stopEditingHandler}
-        />
+      <AddCardForm
+        onSaveCreatureData={saveCreatureDataHandler}
+        onCancel={stopEditingHandler}
+      />
     </div>
   );
 };

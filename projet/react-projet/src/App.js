@@ -29,9 +29,7 @@ export default App;
 
 // TODO
 
-// Form d'update quand on clique
-
-// Form delete
+// delete
 
 // Input recherche par couleur
 

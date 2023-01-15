@@ -20,27 +20,27 @@ const Creatures = (res) => {
   }
 
   useEffect(() => {
-      fetchData()
-    },[])
+    fetchData()
+  }, [])
 
 
   return (
     <div>
-        {card.map((creature) => (
-          <ul>
-              <CreatureRessources 
-                key ={creature.key}
-                id ={creature.id}
-                Name = {creature.Name}
-                Description = {creature.Description}
-                Attack = {creature.Attack}
-                Defense = {creature.Defense}
-                Color = {creature.Color}
-                Cost = {creature.Cost}
+      {card.map((creature) => (
+        <ul>
+          <CreatureRessources
+            key={creature.key}
+            id={creature.id}
+            Name={creature.Name}
+            Description={creature.Description}
+            Attack={creature.Attack}
+            Defense={creature.Defense}
+            Color={creature.Color}
+            Cost={creature.Cost}
 
-                />
-          </ul>
-        ))}
+          />
+        </ul>
+      ))}
     </div>
   );
 };
