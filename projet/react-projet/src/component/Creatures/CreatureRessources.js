@@ -15,6 +15,7 @@ export const CreatureRessources = (res) => {
     const [enteredAttack, setEnteredAttack] = useState('');
     const [enteredDefense, setEnteredDefense] = useState('');
     const [myModifyCreature, setCreatures] = useState(res);
+    const [formNotCompleted, myFormIsNotCompleted] = useState(false);
 
     // Ouvre la modale
     const handleOpenModal = () => {
@@ -55,19 +56,26 @@ export const CreatureRessources = (res) => {
         console.log('submitMyModifyCardHandler()');
         event.preventDefault();
 
-        const creatures = {
-            id: res.id,
-            name: enteredName,
-            cost: enteredCost,
-            color: enteredColor,
-            attack: enteredAttack,
-            defense: enteredDefense,
-            description: enteredDescription,
-        };
+        if (enteredName === '' || enteredCost === '' || enteredColor === '' || enteredAttack === '' || enteredDefense === '' || enteredDescription === '') {
+            console.log('The form is not filled out correctly')
+            myFormIsNotCompleted(true);
+        } else {
+            const creatures = {
+                id: res.id,
+                name: enteredName,
+                cost: enteredCost,
+                color: enteredColor,
+                attack: enteredAttack,
+                defense: enteredDefense,
+                description: enteredDescription,
+            };
 
-        await modifyCreature(creatures);
+            await modifyCreature(creatures);
 
-        setEdit(false);
+            setEdit(false);
+
+        }
+
     };
 
     const modifyCreature = async (modifyCreature) => {
@@ -95,15 +103,15 @@ export const CreatureRessources = (res) => {
                 <div className={classes_card_color}>
                     <div className={classes_header_color}>
                         <div className='name'>
-                            {res.Name}
+                            Name : {res.Name}
                         </div>
                         <div className='cost'>
-                            {res.Cost}
+                            Cost : {res.Cost}
                         </div>
                     </div>
 
                     <div className={classes_image}>
-
+                        In the future we will be able to put an image at this place
                     </div>
 
                     <div className={classes_type}>
@@ -111,7 +119,7 @@ export const CreatureRessources = (res) => {
                     </div>
 
                     <div className={classes_midle_color}>
-                        {res.Description}
+                        Description : {res.Description}
                     </div>
                     <div className={classes_bottom_color}>
                         <div className='attack_defense_box'>
@@ -126,44 +134,52 @@ export const CreatureRessources = (res) => {
                 </div>
             </Cards>
 
-            <Modal open={editedCreature}>
+            <Modal open={editedCreature} className="modal">
                 <form>
+                    <div>
+                        Please fill in all the fields of the card to be modified
+                    </div>
+                    <br></br>
                     <label>
                         Name :
-                        {' '}
                         <input type="text" placeholder={res.Name} onChange={modifyNameChangeHandler} />
                     </label>
-                    {' '}
+                    <br></br>
                     <label>
                         Description :
-                        {' '}
                         <input type="text" placeholder={res.Description} onChange={modifyDescriptionChangeHandler} />
                     </label>
-                    {' '}
+                    <br></br>
                     <label>
                         Cost :
-                        {' '}
-                        <input type="text" placeholder={res.Cost} onChange={modifyCostChangeHandler} />
+                        <input type="number" placeholder={res.Cost} onChange={modifyCostChangeHandler} />
                     </label>
-                    {' '}
+                    <br></br>
                     <label>
                         Attack :
-                        {' '}
-                        <input type="text" placeholder={res.Attack} onChange={modifyAttackChangeHandler} />
+                        <input type="number" placeholder={res.Attack} onChange={modifyAttackChangeHandler} />
                     </label>
-                    {' '}
+                    <br></br>
                     <label>
                         Defense :
-                        {' '}
-                        <input type="text" placeholder={res.Defense} onChange={modifyDefenseChangeHandler} />
+                        <input type="number" placeholder={res.Defense} onChange={modifyDefenseChangeHandler} />
                     </label>
-                    {' '}
-                    <label>
-                        Color :
-                        {' '}
-                        <input type="text" placeholder={res.Color} onChange={modifyColorChangeHandler} />
-                    </label>
-                    {' '}
+                    <br></br>
+                    <label>Color</label>
+                    <select value={enteredColor} onChange={modifyColorChangeHandler} required>
+                        <option value=''>Select Color</option>
+                        <option value='Red'>Red</option>
+                        <option value='White'>White</option>
+                        <option value='Black'>Black</option>
+                        <option value='Blue'>Blue</option>
+                        <option value='Green'>Green</option>
+                    </select>
+                    <br></br>
+                    {formNotCompleted &&
+                        <div>
+                            <p>The form is not filled out correctly</p>
+                        </div>
+                    }
                     <button type="submit" onClick={submitMyModifyCardHandler}>Edit</button>
                     <button type="submit" onClick={handleCloseModal}>Close</button>
                 </form>

@@ -44,7 +44,7 @@ const AddCardForm = (card) => {
     console.log('submitMyNewCardHandler()');
     event.preventDefault();
 
-    if (enteredName === '' || enteredCost === ''  || enteredColor === '' || enteredAttack === '' || enteredDefense === '' || enteredDescription === '') {
+    if (enteredName === '' || enteredCost === '' || enteredColor === '' || enteredAttack === '' || enteredDefense === '' || enteredDescription === '') {
       console.log('The form is not filled out correctly')
       myFormIsNotCompleted(true);
     } else {
